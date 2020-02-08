@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 // import components
 import MainDescription from './components/MainDescription';
+import SectionAbout from './components/SectionAbout';
+
+//import imgs
 import Logo from './imgs/main-logo.svg';
+import AboutImg from './imgs/aboutImg.png';
 import * as data from './dict.json';
 
 class App extends Component {
@@ -32,6 +36,13 @@ class App extends Component {
             description = { content.mainDescription }
             logo = { Logo }
             logoAlt = { "логотип ателье по ремонту одежды 'Татьяна'" } />
+            <SectionAbout
+            sectionId = {"#about"}
+            header = { content.headlineAbout }
+            description = { content.descriptionAbout }
+            img = { AboutImg }
+            imgAlt = { "Наша основная специализация – трикотаж, на фото стопка наших шерстяных свитеров." }
+            />
         </header>
       </div>
     );

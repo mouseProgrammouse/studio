@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const MainDescription = (props) => {
 
     const { header, description, logo, logoAlt } = props;
-
+    // TODO callToAction button with anchor tag
     return (
         <div className="main-description">
             <img src = { logo } alt = { logoAlt }/>
