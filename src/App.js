@@ -3,10 +3,16 @@ import './App.css';
 // import components
 import MainDescription from './components/MainDescription';
 import SectionAbout from './components/SectionAbout';
+import ServicesSection from './components/ServicesSection';
+// import 
 
-//import imgs
+// import imgs
 import Logo from './imgs/main-logo.svg';
 import AboutImg from './imgs/aboutImg.png';
+import IndLogo from './imgs/individual.svg';
+import OptLogo from './imgs/opt.svg';
+import RepairLogo from './imgs/repair.svg';
+// import data
 import * as data from './dict.json';
 
 class App extends Component {
@@ -14,6 +20,20 @@ class App extends Component {
     super(props);
     this.state = {
       content: data.content["RU"], // TODO: get lang from cookies;
+      servicesIcons: [
+        { 
+          img: IndLogo,
+          imgAlt: "Пошив и вязка индивидуальных заказов."
+        },
+        { 
+          img: OptLogo,
+          imgAlt: "Вязка оптовых заказов."
+        },
+        { 
+          img: RepairLogo,
+          imgAlt: "Ремонт одежды."
+        }
+      ],
       lang: "RU" // TODO: get lang from cookies;
     };
   }
@@ -26,7 +46,7 @@ class App extends Component {
   }
 
   render () {
-    const content = this.state.content;
+    const { content, servicesIcons } = this.state;
   
     return (
       <div className="App">
@@ -35,15 +55,24 @@ class App extends Component {
             header = { content.mainHeadline }
             description = { content.mainDescription }
             logo = { Logo }
-            logoAlt = { "логотип ателье по ремонту одежды 'Татьяна'" } />
-            <SectionAbout
+            logoAlt = { "логотип ателье по ремонту одежды 'Татьяна'" }
+          />
+        </header>
+        <body>
+          <SectionAbout
             sectionId = {"#about"}
             header = { content.headlineAbout }
             description = { content.descriptionAbout }
             img = { AboutImg }
             imgAlt = { "Наша основная специализация – трикотаж, на фото стопка наших шерстяных свитеров." }
-            />
-        </header>
+          />
+          <ServicesSection 
+            sectionId = {"#services"}
+            header = { content.headlineServices }
+            services = { content.services }
+            servicesIcons = { servicesIcons }
+          />
+        </body>
       </div>
     );
   }

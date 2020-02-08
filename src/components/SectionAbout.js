@@ -19,7 +19,7 @@ const SectionAbout = ( props ) => {
 }
 
 SectionAbout.propTypes = {
-    sectionId: PropTypes.number.isRequired,
+    sectionId: PropTypes.string.isRequired,
     header: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     img: PropTypes.isRequired,
