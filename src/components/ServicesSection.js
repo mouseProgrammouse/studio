@@ -10,7 +10,7 @@ const ServicesSection = (props) => {
             <ul>
                 {
                     services.map((service, index) => 
-                    <li> 
+                    <li key = { index }> 
                         <img src = {servicesIcons[index].img} alt = {servicesIcons[index].imgAlt}/>
                         <h3> { service.serviceHeadline } </h3>
                         <p> { service.serviceDescription } </p>

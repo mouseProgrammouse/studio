@@ -22,7 +22,7 @@ SectionAbout.propTypes = {
     sectionId: PropTypes.string.isRequired,
     header: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    img: PropTypes.isRequired,
+    img: PropTypes.string.isRequired,
     imgAlt: PropTypes.string.isRequired
 }
 

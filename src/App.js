@@ -4,6 +4,7 @@ import './App.css';
 import MainDescription from './components/MainDescription';
 import SectionAbout from './components/SectionAbout';
 import ServicesSection from './components/ServicesSection';
+import HowSection from './components/HowSection';
 // import 
 
 // import imgs
@@ -12,6 +13,7 @@ import AboutImg from './imgs/aboutImg.png';
 import IndLogo from './imgs/individual.svg';
 import OptLogo from './imgs/opt.svg';
 import RepairLogo from './imgs/repair.svg';
+import HowImg from './imgs/howImg.png';
 // import data
 import * as data from './dict.json';
 
@@ -58,7 +60,7 @@ class App extends Component {
             logoAlt = { "логотип ателье по ремонту одежды 'Татьяна'" }
           />
         </header>
-        <body>
+        <section className="main-content">
           <SectionAbout
             sectionId = {"#about"}
             header = { content.headlineAbout }
@@ -72,7 +74,14 @@ class App extends Component {
             services = { content.services }
             servicesIcons = { servicesIcons }
           />
-        </body>
+          <HowSection
+            sectionId = {"#how"}
+            header = { content.headlineHow }
+            steps = { content.stepsHow }
+            img = { HowImg }
+            imgAlt = { "Изготовление одежды на заказ." }
+          />
+        </section>
       </div>
     );
   }
