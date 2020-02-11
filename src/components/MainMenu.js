@@ -15,7 +15,7 @@ const MainMenu = ( props ) =>  {
                             {
                             (item.anchors.length > 0) ? 
                                 <ul>{ item.anchors.map(( anchor, index ) => 
-                                    <li key={`anchor-${index}`}><Link to = { anchor.to }>{ anchor.name }</Link></li>
+                                    <li key={`anchor-${index}`}><AnchorLink href = {`#${ anchor.to }`}>{ anchor.name }</AnchorLink></li>
                                     ) }
                                 </ul> : ""
                             }
