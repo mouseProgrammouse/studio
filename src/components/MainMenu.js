@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const MainMenu = ( props ) =>  {
 
@@ -9,12 +10,20 @@ const MainMenu = ( props ) =>  {
     return (
             <div className = "main-menu">
                 <ul>
-                    { menuItems.map((item) => (
-                        <li><Link to = { item.to }>{ item.name }</Link></li>
+                    { menuItems.map(( item, index ) => (
+                        <li key={`nav-${index}`}><Link to = { item.to }>{ item.name }</Link>
+                            {
+                            (item.anchors.length > 0) ? 
+                                <ul>{ item.anchors.map(( anchor, index ) => 
+                                    <li key={`anchor-${index}`}><Link to = { anchor.to }>{ anchor.name }</Link></li>
+                                    ) }
+                                </ul> : ""
+                            }
+                        </li>
                     )) }
                 </ul>
             </div>
-    );
+    ); 
 }
 
 MainMenu.propTypes = {
