@@ -58,30 +58,32 @@ class App extends Component {
             description = { content.mainDescription }
             logo = { Logo }
             logoAlt = { "логотип ателье по ремонту одежды 'Татьяна'" }
+            callToActionButton = { content.callToAction }
+            idCallToAction = { "#how" }
           />
         </header>
-        <section className="main-content">
+        <div className="main-content">
           <SectionAbout
-            sectionId = {"#about"}
+            sectionId = {"about"}
             header = { content.headlineAbout }
             description = { content.descriptionAbout }
             img = { AboutImg }
             imgAlt = { "Наша основная специализация – трикотаж, на фото стопка наших шерстяных свитеров." }
           />
           <ServicesSection 
-            sectionId = {"#services"}
+            sectionId = {"services"}
             header = { content.headlineServices }
             services = { content.services }
             servicesIcons = { servicesIcons }
           />
           <HowSection
-            sectionId = {"#how"}
+            sectionId = {"how"}
             header = { content.headlineHow }
             steps = { content.stepsHow }
             img = { HowImg }
             imgAlt = { "Изготовление одежды на заказ." }
           />
-        </section>
+        </div>
       </div>
     );
   }

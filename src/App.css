@@ -1,5 +1,13 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  max-width: 1116px;
+  margin: 0 auto;
+}
+
+*{
+  border: 1px red solid;
 }
 
 header {
@@ -13,4 +21,11 @@ header {
   align-items: center;
   justify-content: center;
   color: 252525;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
