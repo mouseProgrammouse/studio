@@ -58,20 +58,22 @@ class App extends Component {
         <Route exact path = "/" render = { () => (
         <div className = "main">
           <header className = "App-header">
-          <MainMenu 
-            menuItems = { content.menu }
-          />
-          <MainDescription 
-            header = { content.mainHeadline }
-            description = { content.mainDescription }
-            logo = { Logo }
-            logoAlt = { "логотип ателье по ремонту одежды 'Татьяна'" }
-            callToActionButton = { content.callToAction }
-            idCallToAction = { "#how" }
-          />
-          <CityInfo
-            city = { content.city }
-          />
+            <MainMenu 
+              menuItems = { content.menu }
+            />
+            <MainDescription 
+              header = { content.mainHeadline }
+              description = { content.mainDescription }
+              logo = { Logo }
+              logoAlt = { "логотип ателье по ремонту одежды 'Татьяна'" }
+              callToActionButton = { content.callToAction }
+              idCallToAction = { "#how" }
+            />
+            <div className = "asideInfo">
+              <CityInfo
+                city = { content.city }
+              />
+            </div>
           </header>
           <div className = "main-content">
             <SectionAbout

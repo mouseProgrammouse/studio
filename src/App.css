@@ -9,8 +9,6 @@
   font-weight: 400;
 
   min-width: 360px;
-  margin: 0 0;
-  padding: 0 0;
 }
 
 h1,
@@ -50,14 +48,25 @@ h3
 header {
   color: white;
   background-color: brown;
+  display: flex;
+  flex-flow: column;
 }
 
 .App-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   color: 252525;
+}
+
+.App-header .main-menu,
+.App-header .aside-info {
+  width: 28%;
+}
+
+.App-header .main-description {
+  width: 60%;
 }
 
 section {
