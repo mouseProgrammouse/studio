@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 // import components
 import MainDescription from './components/MainDescription';
 import SectionAbout from './components/SectionAbout';
 import ServicesSection from './components/ServicesSection';
 import HowSection from './components/HowSection';
+import MainMenu from './components/MainMenu';
 // import 
 
 // import imgs
@@ -16,6 +18,7 @@ import RepairLogo from './imgs/repair.svg';
 import HowImg from './imgs/howImg.png';
 // import data
 import * as data from './dict.json';
+import constants from 'jest-haste-map/build/constants';
 
 class App extends Component {
   constructor (props) {
@@ -52,7 +55,12 @@ class App extends Component {
   
     return (
       <div className="App">
-        <header className="App-header">
+        <Route exact path="/" render = { () => (
+        <div class="main">
+          <header className="App-header">
+          <MainMenu 
+            menuItems = { content.menu }
+          />
           <MainDescription 
             header = { content.mainHeadline }
             description = { content.mainDescription }
@@ -61,29 +69,48 @@ class App extends Component {
             callToActionButton = { content.callToAction }
             idCallToAction = { "#how" }
           />
-        </header>
-        <div className="main-content">
-          <SectionAbout
-            sectionId = {"about"}
-            header = { content.headlineAbout }
-            description = { content.descriptionAbout }
-            img = { AboutImg }
-            imgAlt = { "Наша основная специализация – трикотаж, на фото стопка наших шерстяных свитеров." }
-          />
-          <ServicesSection 
-            sectionId = {"services"}
-            header = { content.headlineServices }
-            services = { content.services }
-            servicesIcons = { servicesIcons }
-          />
-          <HowSection
-            sectionId = {"how"}
-            header = { content.headlineHow }
-            steps = { content.stepsHow }
-            img = { HowImg }
-            imgAlt = { "Изготовление одежды на заказ." }
-          />
+          </header>
+          <div className="main-content">
+            <SectionAbout
+              sectionId = {"about"}
+              header = { content.headlineAbout }
+              description = { content.descriptionAbout }
+              img = { AboutImg }
+              imgAlt = { "Наша основная специализация – трикотаж, на фото стопка наших шерстяных свитеров." }
+            />
+            <ServicesSection 
+              sectionId = {"services"}
+              header = { content.headlineServices }
+              services = { content.services }
+              servicesIcons = { servicesIcons }
+            />
+            <HowSection
+              sectionId = {"how"}
+              header = { content.headlineHow }
+              steps = { content.stepsHow }
+              img = { HowImg }
+              imgAlt = { "Изготовление одежды на заказ." }
+            />
+          </div>
         </div>
+        )}/>
+        <Route exact path="/catalog" render = { () => (
+        <div class="catalog">
+          <header className="App-header">
+            <MainMenu 
+              menuItems = { content.menu }
+              />
+            <MainDescription 
+              header = { content.mainHeadline }
+              description = { content.mainDescription }
+              logo = { Logo }
+              logoAlt = { "логотип ателье по ремонту одежды 'Татьяна'" }
+              callToActionButton = { content.callToAction }
+              idCallToAction = { "#how" }
+              />
+          </header>
+        </div>
+        )} />
       </div>
     );
   }
