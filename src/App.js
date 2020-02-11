@@ -7,6 +7,7 @@ import SectionAbout from './components/SectionAbout';
 import ServicesSection from './components/ServicesSection';
 import HowSection from './components/HowSection';
 import MainMenu from './components/MainMenu';
+import CityInfo from './components/CityInfo';
 // import 
 
 // import imgs
@@ -18,7 +19,6 @@ import RepairLogo from './imgs/repair.svg';
 import HowImg from './imgs/howImg.png';
 // import data
 import * as data from './dict.json';
-import constants from 'jest-haste-map/build/constants';
 
 class App extends Component {
   constructor (props) {
@@ -54,10 +54,10 @@ class App extends Component {
     const { content, servicesIcons } = this.state;
   
     return (
-      <div className="App">
-        <Route exact path="/" render = { () => (
-        <div class="main">
-          <header className="App-header">
+      <div className = "App">
+        <Route exact path = "/" render = { () => (
+        <div className = "main">
+          <header className = "App-header">
           <MainMenu 
             menuItems = { content.menu }
           />
@@ -69,8 +69,11 @@ class App extends Component {
             callToActionButton = { content.callToAction }
             idCallToAction = { "#how" }
           />
+          <CityInfo
+            city = { content.city }
+          />
           </header>
-          <div className="main-content">
+          <div className = "main-content">
             <SectionAbout
               sectionId = {"about"}
               header = { content.headlineAbout }
@@ -94,9 +97,9 @@ class App extends Component {
           </div>
         </div>
         )}/>
-        <Route exact path="/catalog" render = { () => (
-        <div class="catalog">
-          <header className="App-header">
+        <Route exact path = "/catalog" render = { () => (
+        <div className = "catalog">
+          <header className = "App-header">
             <MainMenu 
               menuItems = { content.menu }
               />
