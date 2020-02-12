@@ -25,6 +25,7 @@ class App extends Component {
     super(props);
     this.state = {
       content: data.content["RU"], // TODO: get lang from cookies;
+      currentPage: "/", // for menu
       servicesIcons: [
         { 
           img: IndLogo,
@@ -51,7 +52,7 @@ class App extends Component {
   }
 
   render () {
-    const { content, servicesIcons } = this.state;
+    const { content, servicesIcons, currentPage } = this.state;
   
     return (
       <div className = "App">
@@ -60,6 +61,7 @@ class App extends Component {
           <header className = "App-header">
             <MainMenu 
               menuItems = { content.menu }
+              currentPage = { "/" }
             />
             <MainDescription 
               header = { content.mainHeadline }
@@ -99,12 +101,13 @@ class App extends Component {
           </div>
         </div>
         )}/>
-        <Route exact path = "/catalog" render = { () => (
+        <Route exact path = "/catalog" render = { ( path = "/catalog" ) => (
         <div className = "catalog">
           <header className = "App-header">
             <MainMenu 
               menuItems = { content.menu }
-              />
+              currentPage = { "/catalog" }
+            />
             <MainDescription 
               header = { content.mainHeadline }
               description = { content.mainDescription }
@@ -112,7 +115,7 @@ class App extends Component {
               logoAlt = { "логотип ателье по ремонту одежды 'Татьяна'" }
               callToActionButton = { content.callToAction }
               idCallToAction = { "#how" }
-              />
+            />
           </header>
         </div>
         )} />

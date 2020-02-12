@@ -5,7 +5,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const MainMenu = ( props ) =>  {
 
-    const { menuItems } = props;
+    const { menuItems, currentPage } = props;
     
     return (
             <div className = "main-menu">
@@ -13,7 +13,7 @@ const MainMenu = ( props ) =>  {
                     { menuItems.map(( item, index ) => (
                         <li key={`nav-${index}`}><Link to = { item.to }>{ item.name }</Link>
                             {
-                            (item.anchors.length > 0) ? 
+                            ( item.anchors.length > 0 && item.to == currentPage ) ? 
                                 <ul>{ item.anchors.map(( anchor, index ) => 
                                     <li key={`anchor-${index}`}><AnchorLink href = {`#${ anchor.to }`}>{ anchor.name }</AnchorLink></li>
                                     ) }
@@ -27,7 +27,8 @@ const MainMenu = ( props ) =>  {
 }
 
 MainMenu.propTypes = {
-    menuItems: PropTypes.array.isRequired
+    menuItems: PropTypes.array.isRequired,
+    currentPage: PropTypes.string.isRequired
 }
 
 
